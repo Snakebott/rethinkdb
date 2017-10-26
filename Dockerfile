@@ -15,7 +15,6 @@ WORKDIR /app/rethinkdb
 ADD . /app/rethinkdb
 
 VOLUME [ "/app/rethinkdb/data" ]
-VOLUME [ "/app/rethinkdb/logs" ]
 EXPOSE 28015 29015 8080
 
 CMD [ "rethinkdb", "--config-file", "/app/rethinkdb/config/rethinkdb.conf", "-d", "/app/rethinkdb/data" ]
