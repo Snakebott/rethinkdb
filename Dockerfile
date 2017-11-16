@@ -8,8 +8,7 @@ RUN bash -c 'source /etc/lsb-release && echo \
     "deb http://download.rethinkdb.com/apt \
     $DISTRIB_CODENAME main" | tee /etc/apt/sources.list.d/rethinkdb.list'
 RUN wget -qO- https://download.rethinkdb.com/apt/pubkey.gpg | apt-key add -
-RUN apt-get update
-RUN apt-get -y install rethinkdb
+RUN apt-get update && apt-get -y install rethinkdb
 
 WORKDIR /app/rethinkdb
 ADD . /app/rethinkdb
@@ -17,5 +16,5 @@ ADD . /app/rethinkdb
 VOLUME [ "/app/rethinkdb/data" ]
 EXPOSE 28015 29015 8080
 
-CMD [ "rethinkdb", "--config-file", "/app/rethinkdb/config/rethinkdb.conf", "-d", "/app/rethinkdb/data" ]
+ENTRYPOINT [ "rethinkdb", "--config-file", "/app/rethinkdb/config/rethinkdb.conf", "-d", "/app/rethinkdb/data" ]
 
