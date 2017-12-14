@@ -18,5 +18,4 @@ ADD . /app/rethinkdb
 VOLUME [ "/app/rethinkdb/data", "/app/rethinkdb/config" ]
 EXPOSE 28015 29015 8080
 
-ENTRYPOINT [ "rethinkdb", "--config-file", "/app/rethinkdb/config/rethinkdb.conf", "-d", "/app/rethinkdb/data" ]
-
+ENTRYPOINT [ "rethinkdb"]
