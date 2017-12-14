@@ -19,3 +19,4 @@ VOLUME [ "/app/rethinkdb/data", "/app/rethinkdb/config" ]
 EXPOSE 28015 29015 8080
 
 ENTRYPOINT [ "rethinkdb"]
+CMD ["--bind", "all"]
